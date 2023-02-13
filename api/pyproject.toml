@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "cartoonizer"
+version = "0.1.0"
+description = "API to connect frontend to machine learning model"
+authors = ["John Robert"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.91.0"
+uvicorn = "^0.20.0"
+requests = "^2.28.2"
+torch = "^1.13.1"
+fastai = "1.0.61"
+python-multipart = "^0.0.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
