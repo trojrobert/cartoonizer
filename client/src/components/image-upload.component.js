@@ -12,25 +12,24 @@ export default class UploadImages extends Component {
       previewImage: undefined,
       progress: 0,
       message: "",
-
       imageInfos: [],
     };
   }
 
-  componentDidMount() {
-    UploadService.getFiles().then((response) => {
-      this.setState({
-        imageInfos: response.data,
-      });
-    });
-  }
+  // componentDidMount() {
+  //   UploadService.getFiles().then((response) => {
+  //     this.setState({
+  //       imageInfos: response.data,
+  //     });
+  //   });
+  // }
 
   selectFile(event) {
     this.setState({
       currentFile: event.target.files[0],
       previewImage: URL.createObjectURL(event.target.files[0]),
       progress: 0,
-      message: "File Selected. Please click upload"
+      message: "File Selected. Please click Colourize"
     });
   }
 
@@ -44,24 +43,24 @@ export default class UploadImages extends Component {
         progress: Math.round((100 * event.loaded) / event.total),
       });
     })
-      .then((response) => {
-        this.setState({
-          message: response.data.message,
-        });
-        return UploadService.getFiles();
-      })
-      .then((files) => {
-        this.setState({
-          imageInfos: files.data,
-        });
-      })
-      .catch((err) => {
-        this.setState({
-          progress: 0,
-          message: "Could not upload the image!",
-          currentFile: undefined,
-        });
-      });
+      // .then((response) => {
+      //   this.setState({
+      //     message: response.data.message,
+      //   });
+      //   return UploadService.getFiles();
+      // })
+      // .then((files) => {
+      //   this.setState({
+      //     imageInfos: files.data,
+      //   });
+      // })
+      // .catch((err) => {
+      //   this.setState({
+      //     progress: 0,
+      //     message: "Could not upload the image!",
+      //     currentFile: undefined,
+      //   });
+      // });
   }
 
   render() {
@@ -88,7 +87,7 @@ export default class UploadImages extends Component {
               disabled={!currentFile}
               onClick={this.upload}
             >
-              Upload
+              Decolourize
             </button>
           </div>
         </div>
@@ -120,7 +119,7 @@ export default class UploadImages extends Component {
           </div> 
         )}
 
-        <div className="card mt-3">
+        {/* <div className="card mt-3">
           <div className="card-header">List of Images</div>
           <ul className="list-group list-group-flush">
             {imageInfos &&
@@ -130,7 +129,7 @@ export default class UploadImages extends Component {
                 </li>
               ))}
           </ul>
-        </div>
+        </div> */}
       </div>
     );
   }

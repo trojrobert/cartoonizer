@@ -1,6 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-Artline_920.pkl
+*.pkl
 pred_img.jpg
+query_img.jpg
 
 # Virutual environment
 *.venv
@@ -68,8 +69,8 @@ maildir
 
 
 # dependencies
-/node_modules
-/.pnp
+*/node_modules
+*/.pnp
 .pnp.js
 
 # testing

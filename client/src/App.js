@@ -7,8 +7,7 @@ import UploadImages from "./components/image-upload.component";
 function App() {
   return (
     <div className="container">
-      <h3>Cartoonizer App</h3>
-      <h4>Upload your image</h4>
+      <h3>Decolourizer AI</h3>
 
       <div className="content">
         <UploadImages />

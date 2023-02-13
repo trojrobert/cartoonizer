@@ -5,21 +5,35 @@ class FileUploadService {
   upload(file, onUploadProgress) {
     let formData = new FormData();
 
-    formData.append("file", file);
+    formData.append("file",
+                    file,
+                    file.name);
     
-    
+    const requestOptions = {
 
-    return http.post("/upload", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-      onUploadProgress,
-    });
+      method: "POST",
+      body: formData
+    }
+
+    fetch("http://0.0.0.0:8080/decolorize", requestOptions)
+    .then(response => response.json())
+    .then(function(response){
+      console.log(response)
+    })
+    
+    return {"Learning": "Good"};
+
+    // return http.post("/upload", formData, {
+    //   headers: {
+    //     "Content-Type": "multipart/form-data",
+    //   },
+    //   onUploadProgress,
+    // });
   }
 
-  getFiles() {
-    return http.get("/files");
-  }
+  // getFiles() {
+  //   return http.get("/files");
+  // }
 }
 
 export default new FileUploadService();
