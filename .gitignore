@@ -2,6 +2,9 @@
 Artline_920.pkl
 pred_img.jpg
 
+# Virutual environment
+*.venv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
