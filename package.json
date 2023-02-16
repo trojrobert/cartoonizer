@@ -1,0 +1,17 @@
+{
+    "name": "cartoonizer",
+    "version": "1.0.0",
+    "description": "cartoonize photos",
+    "scripts": {
+        "start": "yarn run start:server && yarn run start:client",
+        "start:server": "cd ./api",
+        "start:client": "cd ./client-vue && yarn dev"
+    },
+    "main": "index.js",
+    "repository": "https://github.com/michaeleze/cartoonizer.git",
+    "author": "michael <michaeleze3@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "nodemon": "^2.0.20"
+    }
+}
