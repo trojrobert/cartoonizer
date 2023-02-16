@@ -46,7 +46,7 @@ def preprocess_img(img_url):
     bytes_io = BytesIO(img_url)
         
     img = PIL.Image.open(bytes_io).convert("RGB")
-    img_path = os.path.join("images", "query_img.jpg")
+    img_path = os.path.join("static", "query_img.jpg")
     img.save(img_path)
     img = add_margin(img, 250, 250, 250, 250, (255, 255, 255))
     img.save(img_path, quality=95)

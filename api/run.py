@@ -9,6 +9,7 @@ from fastai.vision import load_learner
 from pathlib import Path
 from utils import *
 from PIL import Image
+import base64
 
 
 import uvicorn 
@@ -58,7 +59,9 @@ origins = [
 
     "http://localhost",
 
-    "http://localhost:8083",
+    "http://localhost:8081",
+
+    
 
     "http://localhost:3000",
 
@@ -98,8 +101,12 @@ async def root():
 @app.post("/decolorize")
 async def decolorize_image(file: bytes = File(...)):
     img = predict(file, learner)
-    pred_path = os.path.join("images", "pred_img.jpg")
+    pred_path = os.path.join("static", "pred_img.jpg")
     img.save(pred_path)
+    with open(pred_path, "rb") as img_file:
+        my_string = base64.b64encode(img_file.read())
+    return {my_string}
+
 
    
 if __name__ == "__main__":
