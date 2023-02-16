@@ -5,7 +5,7 @@
     "scripts": {
         "start": "yarn run start:server && yarn run start:client",
         "start:server": "cd ./api",
-        "start:client": "cd ./client-vue && yarn dev"
+        "start:client": "cd ./client-react && yarn dev"
     },
     "main": "index.js",
     "repository": "https://github.com/michaeleze/cartoonizer.git",
