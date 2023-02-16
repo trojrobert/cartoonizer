@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "cartoonize photos",
     "scripts": {
-        "start": "yarn run start:server && yarn run start:client",
+        "start": "concurrently \" yarn start:server\" \"yarn start:client\"",
         "start:server": "cd ./api && python run.py",
         "start:client": "cd ./client-react && yarn start"
     },
@@ -13,5 +13,8 @@
     "license": "MIT",
     "devDependencies": {
         "nodemon": "^2.0.20"
+    },
+    "dependencies": {
+        "concurrently": "^7.6.0"
     }
 }
