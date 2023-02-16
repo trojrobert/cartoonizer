@@ -4,7 +4,7 @@
     "description": "cartoonize photos",
     "scripts": {
         "start": "yarn run start:server && yarn run start:client",
-        "start:server": "cd ./api",
+        "start:server": "cd ./api && python run.py",
         "start:client": "cd ./client-react && yarn dev"
     },
     "main": "index.js",
