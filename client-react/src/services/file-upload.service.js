@@ -15,13 +15,14 @@ class FileUploadService {
       body: formData
     }
 
-    fetch("http://0.0.0.0:8080/decolorize", requestOptions)
+    return fetch("http://0.0.0.0:8080/decolorize", requestOptions)
     .then(response => response.json())
     .then(function(response){
-      console.log(response)
+      // console.log(response);
+      return response
     })
-    
-    return {"Learning": "Good"};
+
+    //.catch((error) => { console.warn(error); });
 
     // return http.post("/upload", formData, {
     //   headers: {
