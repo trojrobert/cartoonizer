@@ -10,6 +10,7 @@ export default class UploadImages extends Component {
     this.state = {
       currentFile: undefined,
       previewImage: undefined,
+      predictImage: undefined, 
       progress: 0,
       message: "",
       imageInfos: [],
@@ -43,6 +44,12 @@ export default class UploadImages extends Component {
         progress: Math.round((100 * event.loaded) / event.total),
       });
     })
+    .then((response) => {
+      console.log(response)
+      this.setState({
+        predictImage: `data:image/jpeg;base64,${response}`,
+      });
+      })
       // .then((response) => {
       //   this.setState({
       //     message: response.data.message,
@@ -67,6 +74,7 @@ export default class UploadImages extends Component {
     const {
       currentFile,
       previewImage,
+      predictImage,
       progress,
       message,
       imageInfos,
@@ -109,15 +117,23 @@ export default class UploadImages extends Component {
 
         {previewImage && (
           <div>
-            <img className="preview" src={previewImage} alt="" />
+              <img className="col-md-4 img-responsive" src={previewImage} width="300" height="300" alt="" />
+
+              <img className="col-md-4 img-responsive" src={predictImage} width="300" height="300" alt="" />
           </div>
         )}
 
-        {message && (
+        {/* {message && (
           <div className="alert alert-secondary mt-3" role="alert">
             {message}
           </div> 
-        )}
+        )} */}
+
+        {/* {predictImage && (
+          <div>
+            <img className="preview" src={predictImage} alt="" />
+          </div> 
+        )} */}
 
         {/* <div className="card mt-3">
           <div className="card-header">List of Images</div>
