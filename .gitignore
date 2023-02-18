@@ -69,7 +69,7 @@ maildir
 
 
 # dependencies
-*/node_modules
+/node_modules
 /.pnp
 .pnp.js
 
@@ -89,3 +89,14 @@ maildir
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+node_modules/
+node_modules/.yarn-integrity
+node_modules/fsevents/fsevents.d.ts
+node_modules/fsevents/fsevents.js
+node_modules/fsevents/fsevents.node
+node_modules/fsevents/LICENSE
+node_modules/fsevents/package.json
+node_modules/fsevents/README.md
+node_modules/has-flag/index.js
+node_modules/has-flag/package.json
+node_modules/has-flag/readme.md

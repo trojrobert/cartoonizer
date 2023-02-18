@@ -17,14 +17,6 @@ export default class UploadImages extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   UploadService.getFiles().then((response) => {
-  //     this.setState({
-  //       imageInfos: response.data,
-  //     });
-  //   });
-  // }
-
   selectFile(event) {
     this.setState({
       currentFile: event.target.files[0],
@@ -50,24 +42,6 @@ export default class UploadImages extends Component {
         predictImage: `data:image/jpeg;base64,${response}`,
       });
       })
-      // .then((response) => {
-      //   this.setState({
-      //     message: response.data.message,
-      //   });
-      //   return UploadService.getFiles();
-      // })
-      // .then((files) => {
-      //   this.setState({
-      //     imageInfos: files.data,
-      //   });
-      // })
-      // .catch((err) => {
-      //   this.setState({
-      //     progress: 0,
-      //     message: "Could not upload the image!",
-      //     currentFile: undefined,
-      //   });
-      // });
   }
 
   render() {

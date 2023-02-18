@@ -8,7 +8,7 @@ class FileUploadService {
     formData.append("file",
                     file,
                     file.name);
-    
+
     const requestOptions = {
 
       method: "POST",
