@@ -1,20 +1,20 @@
 {
-    "name": "cartoonizer",
-    "version": "1.0.0",
-    "description": "cartoonize photos",
-    "scripts": {
-        "start": "concurrently \" yarn start:server\" \"yarn start:client\"",
-        "start:server": "cd ./api && python run.py",
-        "start:client": "cd ./client-react && yarn start"
-    },
-    "main": "index.js",
-    "repository": "https://github.com/michaeleze/cartoonizer.git",
-    "author": "michael <michaeleze3@gmail.com>",
-    "license": "MIT",
-    "devDependencies": {
-        "nodemon": "^2.0.20"
-    },
-    "dependencies": {
-        "concurrently": "^7.6.0"
-    }
+  "name": "cartoonizer",
+  "version": "1.0.0",
+  "description": "cartoonize photos",
+  "scripts": {
+    "start": "test -d \"node_modules\" || yarn && concurrently \" yarn start:server\" \"yarn start:client\"",
+    "start:server": "cd ./api && python run.py",
+    "start:client": "cd ./client-next && test -d \"node_modules\" || yarn && yarn dev"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/michaeleze/cartoonizer.git",
+  "author": "michael <michaeleze3@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
 }
