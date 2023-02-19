@@ -4,7 +4,7 @@
   "description": "cartoonize photos",
   "scripts": {
     "start": "test -d \"node_modules\" || yarn && concurrently \" yarn start:server\" \"yarn start:client\"",
-    "start:server": "cd ./api && python run.py",
+    "start:server": "cd ./api && python index.py",
     "start:client": "cd ./client-next && test -d \"node_modules\" || yarn && yarn dev"
   },
   "main": "index.js",
