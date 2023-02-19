@@ -1,4 +1,5 @@
 import Upload from '../components/Upload';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (

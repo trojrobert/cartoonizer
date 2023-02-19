@@ -1,11 +1,9 @@
 class UploadService {
-  static async upload(file) {
-    const formData = new FormData();
-
+  static async upload(file: string | undefined) {
     try {
       const response = await fetch("http://0.0.0.0:8080/decolorize", {
         method: "POST",
-        body: formData.append("file", file, file.name)
+        body: JSON.stringify({file})
       });
 
       const data = await response.json();
@@ -13,7 +11,7 @@ class UploadService {
       return Promise.resolve(data);
     }
     catch (err) {
-      throw new Error(err);
+      throw new Error('Upload failed');
 
     }
   }
