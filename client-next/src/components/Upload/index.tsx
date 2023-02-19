@@ -2,15 +2,16 @@ import Image from 'next/image';
 import React, { useCallback, useState } from 'react';
 import UploadService from '@/services/upload.service';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { debug } from 'console';
 
 const Upload = () => {
-  const [previewImage, setPreviewImage] = useState<string>();
+  const [previewImage, setPreviewImage] = useState<Blob>();
   const [decolorizedImage, setDecolorizedImage] = useState<string>();
 
-  const handleImageUpload = useCallback( (event: any) => {
+  const handleImageUpload = useCallback((event: any) => {
     const file = event.target.files[0];
     // const progress = Math.round((100 * event.loaded) / event.total);
-    setPreviewImage(URL.createObjectURL(event.target.files[0]));
+    setPreviewImage(event.target.files[0]);
   }, []);
 
   const handleClick = useCallback(async () => {
@@ -54,8 +55,8 @@ const Upload = () => {
         </div>
       )} */}
 
-      {previewImage && <Image loading="lazy" src={previewImage} width="300" height="300" objectFit="fill" layout="responsive" />}
-      {decolorizedImage && <Image loading="lazy" src={decolorizedImage} width="300" height="300" objectFit="fill" layout="responsive" />}
+      {previewImage && <div style={{ width: '300px', height: '300px'}}><Image alt="" loading="lazy" src={URL.createObjectURL(previewImage)} width="300" height="300" layout='cover'/></div>}
+      {decolorizedImage && <div style={{ width: '300px', height: '300px'}}><Image alt="" loading="lazy" src={decolorizedImage} width="300" height="300"/></div>}
     </div>
   );
 }

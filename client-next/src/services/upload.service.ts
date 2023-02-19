@@ -1,5 +1,5 @@
 class UploadService {
-  static async upload(file: string | undefined) {
+  static async upload(file: Blob | undefined) {
     try {
       const response = await fetch("http://0.0.0.0:8080/decolorize", {
         method: "POST",
