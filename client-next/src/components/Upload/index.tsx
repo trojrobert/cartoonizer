@@ -1,20 +1,21 @@
-import Image from 'next/image';
-import React, { useCallback, useState } from 'react';
-import UploadService from '@/services/upload.service';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { debug } from 'console';
+import Image from "next/image";
+import React, { useCallback, useState } from "react";
+import UploadService from "@/services/upload.service";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Upload = () => {
-  const [previewImage, setPreviewImage] = useState<Blob>();
+  const [previewImage, setPreviewImage] = useState<any>(null);
   const [decolorizedImage, setDecolorizedImage] = useState<string>();
 
   const handleImageUpload = useCallback((event: any) => {
     const file = event.target.files[0];
     // const progress = Math.round((100 * event.loaded) / event.total);
-    setPreviewImage(event.target.files[0]);
+    setPreviewImage(file);
   }, []);
 
-  const handleClick = useCallback(async () => {
+  const handleClick = useCallback(async (previewImage) => {
+    console.log("console image", previewImage);
+
     const response = await UploadService.upload(previewImage);
 
     setDecolorizedImage(response);
@@ -33,7 +34,7 @@ const Upload = () => {
           <button
             className="btn btn-success btn-sm"
             disabled={!previewImage}
-            onClick={handleClick}
+            onClick={() => handleClick(previewImage)}
           >
             Decolourize
           </button>
@@ -55,10 +56,31 @@ const Upload = () => {
         </div>
       )} */}
 
-      {previewImage && <div style={{ width: '300px', height: '300px'}}><Image alt="" loading="lazy" src={URL.createObjectURL(previewImage)} width="300" height="300" layout='cover'/></div>}
-      {decolorizedImage && <div style={{ width: '300px', height: '300px'}}><Image alt="" loading="lazy" src={decolorizedImage} width="300" height="300"/></div>}
+      {previewImage && (
+        <div style={{ width: "300px", height: "300px" }}>
+          <Image
+            alt=""
+            loading="lazy"
+            src={URL.createObjectURL(previewImage)}
+            width="300"
+            height="300"
+            layout="cover"
+          />
+        </div>
+      )}
+      {decolorizedImage && (
+        <div style={{ width: "300px", height: "300px" }}>
+          <Image
+            alt=""
+            loading="lazy"
+            src={decolorizedImage}
+            width="300"
+            height="300"
+          />
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Upload;
