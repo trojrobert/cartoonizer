@@ -4,7 +4,7 @@ import UploadService from "@/services/upload.service";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Upload = () => {
-  const [previewImage, setPreviewImage] = useState<any>(null);
+  const [previewImage, setPreviewImage] = useState<Blob | undefined>(null as any);
   const [decolorizedImage, setDecolorizedImage] = useState<string>();
 
   const handleImageUpload = useCallback((event: any) => {
@@ -13,9 +13,7 @@ const Upload = () => {
     setPreviewImage(file);
   }, []);
 
-  const handleClick = useCallback(async (previewImage) => {
-    console.log("console image", previewImage);
-
+  const handleClick = useCallback(async (previewImage: Blob | undefined) => {
     const response = await UploadService.upload(previewImage);
 
     setDecolorizedImage(response);

@@ -13,7 +13,6 @@ class UploadService {
     }
     catch (err) {
       throw new Error('Upload failed');
-
     }
   }
 }
