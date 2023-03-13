@@ -1,0 +1,12 @@
+
+FROM node:14
+
+RUN apt update -y
+
+COPY package.json .
+RUN yarn install
+
+COPY . .
+EXPOSE 8081
+
+CMD yarn start
