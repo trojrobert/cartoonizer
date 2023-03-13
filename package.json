@@ -5,7 +5,7 @@
     "scripts": {
         "start": "concurrently \" yarn start:server\" \"yarn start:client\"",
         "start:server": "cd ./api && python run.py",
-        "start:client": "cd ./client-react && yarn start"
+        "start:client": "cd ./web && yarn start"
     },
     "main": "index.js",
     "repository": "https://github.com/michaeleze/cartoonizer.git",
