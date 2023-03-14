@@ -1,5 +1,4 @@
-import http from "../http-common";
-import axios from "axios";
+// import http from "../http-common";
 
 class FileUploadService {
   upload(file, onUploadProgress) {

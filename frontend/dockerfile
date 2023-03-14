@@ -1,12 +1,12 @@
 
-FROM node:14
+FROM node:14-buster-slim
 
-RUN apt update -y
+RUN  apt-get update \
+  && rm -rf /var/lib/apt/lists/*
 
-COPY package.json .
-RUN yarn install
+WORKDIR /frontend
 
 COPY . .
-EXPOSE 8081
+RUN yarn install --production 
 
 CMD yarn start
