@@ -1,4 +1,4 @@
-// import http from "../http-common";
+//import http from "../http-common";
 
 class FileUploadService {
   upload(file, onUploadProgress) {
@@ -14,7 +14,7 @@ class FileUploadService {
       body: formData
     }
 
-    return fetch("http://0.0.0.0:8080/decolorize", requestOptions)
+    return fetch("https://0.0.0.0:8080/decolorize", requestOptions)
     .then(response => response.json())
     .then(function(response){
       // console.log(response);
