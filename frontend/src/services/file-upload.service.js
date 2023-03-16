@@ -14,7 +14,7 @@ class FileUploadService {
       body: formData
     }
 
-    return fetch("https://0.0.0.0:8080/decolorize", requestOptions)
+    return fetch("container-service-1.lr6fltdn67ia8.eu-central-1.cs.amazonlightsail.com/decolorize", requestOptions)
     .then(response => response.json())
     .then(function(response){
       // console.log(response);
