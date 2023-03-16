@@ -59,9 +59,9 @@ origins = [
 
     "http://localhost",
 
-    "https://localhost:8081",
+    "http://localhost:8081",
 
-    "https://localhost:3000",
+    "http://localhost:3000",
 
     ]
 
