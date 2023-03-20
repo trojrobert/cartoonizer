@@ -1,5 +1,5 @@
 import './App.scss';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 
 import UploadImages from "./components/image-upload.component";
@@ -7,7 +7,7 @@ import UploadImages from "./components/image-upload.component";
 function App() {
   return (
     <div className="container">
-      <h3>Decolourizer AI</h3>
+      <h3>Portrait AI</h3>
 
       <div className="content">
         <UploadImages />
