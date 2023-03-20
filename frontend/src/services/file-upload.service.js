@@ -14,7 +14,12 @@ class FileUploadService {
       body: formData
     }
 
-    return fetch("container-service-1.lr6fltdn67ia8.eu-central-1.cs.amazonlightsail.com/decolorize", requestOptions)
+    const response =  fetch('https://geolocation-db.com/json/');
+    const data =  response.json();
+
+    //return fetch("http://0.0.0.0:8080/decolorize", requestOptions)
+
+    return fetch(`http://${data.IPv4}/decolorize`, requestOptions)
     .then(response => response.json())
     .then(function(response){
       // console.log(response);
