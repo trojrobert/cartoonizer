@@ -1,0 +1,14 @@
+timm==0.6.12
+opencv-contrib-python==4.3.0.36
+pytorch-lightning==1.9.1
+einops==0.3.0
+open_clip_torch==2.0.2
+omegaconf==2.1.1
+transformers==4.19.2
+xformers--no-cache-dir
+triton
+fastai==1.0.61
+numpy
+pandas 
+
+# aria2c --console-log-level=error --summary-interval=10 --header=Authorization: Bearer  -c -x 16 -k 1M -s 16 -d models -o control_sd15_canny.pth https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_canny.pth
